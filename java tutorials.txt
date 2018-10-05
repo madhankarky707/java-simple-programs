@@ -1,0 +1,707 @@
+Inner class :
+program 1: 
+
+
+import java.io.*;
+class Myclass{
+    int a = 2;
+    int b = 3;
+    public void display(){
+          Innerclass n = new Innerclass();
+        n.displayresult();
+        System.out.println("Myclass");
+    }
+    class Innerclass{
+        public void displayresult(){
+           System.out.println("inner class");  
+        }
+    }
+}
+public class Derived{
+    public static void main(String[] args){
+        Myclass m = new Myclass();
+        m.display();
+    }
+}
+
+program 2 :
+
+import java.io.*;
+class Myclass{
+    int a = 2;
+    int b = 3;
+    public void display(){
+        //   Innerclass n = new Innerclass();
+        // n.displayresult();
+        System.out.println("Myclass");
+    }
+    class Innerclass{
+        public void displayresult(){
+           System.out.println("inner class");  
+        }
+    }
+}
+public class Derived{
+    public static void main(String[] args){
+        Myclass m = new Myclass();
+        Myclass.Innerclass n = m.new Innerclass();
+        n.displayresult();
+    }
+}
+
+program 3 :
+
+public class Outerclass {
+   void my_Method() {
+      int num = 23;
+      class MethodInner_Demo {
+         public void print() {
+            System.out.println("This is method inner class "+num);	   
+         }   
+      }
+      MethodInner_Demo inner = new MethodInner_Demo();
+      inner.print();
+   }
+   public static void main(String args[]) {
+      Outerclass outer = new Outerclass();
+      outer.my_Method();	   	   
+   }
+}
+
+
+factorial:
+
+
+class FactorialExample{  
+ public static void main(String args[]){  
+  int i,fact=1;  
+  int number=5;//It is the number to calculate factorial    
+  for(i=1;i<=number;i++){    
+      fact=fact*i;    
+  }    
+  System.out.println("Factorial of "+number+" is: "+fact);    
+ }  
+}  
+
+factorial recursion:
+
+class FactorialExample2{  
+ static int factorial(int n){    
+  if (n == 0)    
+    return 1;    
+  else    
+    return(n * factorial(n-1));    
+ }    
+ public static void main(String args[]){  
+  int i,fact=1;  
+  int number=4;//It is the number to calculate factorial    
+  fact = factorial(number);   
+  System.out.println("Factorial of "+number+" is: "+fact);    
+ }  
+}  
+
+
+Fibonacci Series in Java without using recursion:
+
+
+class FibonacciExample1{  
+public static void main(String args[])  
+{    
+ int n1=0,n2=1,n3,i,count=10;    
+ System.out.print(n1+" "+n2);//printing 0 and 1    
+    
+ for(i=2;i<count;++i)//loop starts from 2 because 0 and 1 are already printed    
+ {    
+  n3=n1+n2;    
+  System.out.print(" "+n3);    
+  n1=n2;    
+  n2=n3;    
+ }    
+  
+}}  
+
+
+Fibonacci Series using recursion in java:
+
+class FibonacciExample2{  
+ static int n1=0,n2=1,n3=0;    
+ static void printFibonacci(int count){    
+    if(count>0){    
+         n3 = n1 + n2;    
+         n1 = n2;    
+         n2 = n3;    
+         System.out.print(" "+n3);   
+         printFibonacci(count-1);    
+     }    
+ }    
+ public static void main(String args[]){    
+  int count=10;    
+  System.out.print(n1+" "+n2);//printing 0 and 1    
+  printFibonacci(count-2);//n-2 because 2 numbers are already printed   
+ }  
+}  
+
+
+Armstrong Number in Java:
+
+public class ArmstrongExample{  
+  public static void main(String[] args)  {  
+    int c=0,a,temp;  
+    int n=153;//It is the number to check armstrong  
+    temp=n;  
+    while(n>0)  
+    {  
+    a=n%10;
+     System.out.println("a"+" "+a);
+    n=n/10;  
+     System.out.println("n"+" "+n);
+    c=c+(a*a*a);  
+     System.out.println("c"+" "+c);
+    }  
+    if(temp==c)  
+    System.out.println("armstrong number");   
+    else  
+        System.out.println("Not armstrong number");   
+   }  
+}  
+
+
+output:
+
+a 3
+n 15
+c 27
+a 5
+n 1
+c 152
+a 1
+n 0
+c 153
+armstrong number
+
+
+Palindrome Program in Java:
+
+public class PalindromeExample{  
+ public static void main(String args[]){  
+  int r,sum=0,temp;    
+  int n=454;//It is the number variable to be checked for palindrome  
+  
+  temp=n;    
+  while(n>0){    
+   r=n%10;  //getting remainder  
+    System.out.println("r "+""+r);   
+   sum=(sum*10)+r;  
+       System.out.println("sum "+""+sum);  
+   n=n/10;    
+       System.out.println("n "+""+n);  
+  }    
+  if(temp==sum)    
+   System.out.println("palindrome number ");    
+  else    
+   System.out.println("not palindrome");    
+}  
+}  
+
+output :
+
+r 4
+sum 4
+n 45
+r 5
+sum 45
+n 4
+r 4
+sum 454
+n 0
+palindrome number 
+
+
+program 2: String palindrome:
+
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+        int n;
+        String temp="";
+        String temp1="";
+        Scanner s = new Scanner(System.in);
+        n=s.nextInt();
+        String a[]=new String[n];
+        System.out.println("n = " + n);
+        for(int i=0;i<n;i++){
+            a[i]=s.next();
+               temp1 =temp1+a[i];
+        }
+        for(int j=n-1;j>=0;j--){     
+       temp =temp+a[j];
+        }       
+        if(temp1.equals(temp)){
+              System.out.println("palin"+temp);
+        }
+        else{
+            System.out.println("Not palin"+temp);
+        }
+        // System.out.println(temp1);
+        // System.out.println(temp); 
+    }
+}
+
+
+Sum of n  numbers:
+
+class sum
+{
+	public static void main(String arg[])	
+	{
+                  int n,sum=0;
+                  
+                  Scanner sc=new Scanner(System.in);
+ 
+	    System.out.println("enter how many numbers you want sum");
+                   n=sc.nextInt();
+                   int a[]=new int[n]; 
+	    System.out.println("enter the "+n+" numbers ");
+                   for(int i=0;i<n;i++)
+                   {      
+	             System.out.println("enter  number  "+(i+1)+":");
+                           a[i]=sc.nextInt();
+                   }
+                   for(int i=0;i<n;i++)
+                   {
+                           sum+=a[i];
+                   }  	    
+                   System.out.println("sum of "+n+" numbers is ="+sum);                  
+              	}
+} 
+
+Output:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+enter how many numbers you want sum
+5
+enter the 5 numbers
+enter  number  1:
+32
+enter  number  2:
+12
+enter  number  3:
+43
+enter  number  4:
+212
+enter  number  5:
+23
+sum of 5 numbers is =322
+
+Sorting :
+Decending order:
+
+import java.util.Scanner;
+public class Ascending
+{
+   public static void main(String[] args)
+   {
+       int n, temp;
+       Scanner s = new Scanner(System.in);
+       System.out.print("Enter no. of elements you want in array:");
+       n = s.nextInt();
+       int a[] = new int[n];
+       System.out.println("Enter all the elements:");
+       for (int i = 0; i < n; i++)
+       {
+           a[i] = s.nextInt();
+       }
+       for (int i = 0; i < n; i++)
+       {
+            System.out.print("check Order:");
+           for (int j = i + 1; j < n; j++)
+           {
+               if (a[i] < a[j])
+               {
+                   temp = a[i];
+                   a[i] = a[j];
+                   a[j] = temp;
+               }
+           }
+       }
+      
+       for (int i = 0; i < n - 1; i++)
+       {
+           System.out.println(a[i] + ",");
+       }
+       System.out.println(a[n - 1]);
+   }
+}
+
+program 2 in string:
+
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+        int n;
+        String temp;
+        Scanner s = new Scanner(System.in);
+        n=s.nextInt();
+        String a[]=new String[n];
+        System.out.println("n = " + n);
+        for(int i=0;i<n;i++){
+            a[i]=s.next();
+        }
+        for(int j=0;j<n;j++){
+             for(int k=j+1;k<n;k++){
+            if(a[j].compareTo(a[k])<=0){
+                temp = a[j];
+                a[j] = a[k];
+                a[k] = temp;
+                }
+            }
+        }
+        for(int l=0;l<n;l++){
+            System.out.println(a[l]);
+        }
+    }
+}
+
+
+Accending order:
+
+import java.util.Scanner;
+public class Ascending
+{   
+   public static void main(String[] args)
+   {
+       int n, temp;
+       Scanner s = new Scanner(System.in);
+       System.out.print("Enter no. of elements you want in array:");
+       n = s.nextInt();
+       int a[] = new int[n];
+       System.out.println("Enter all the elements:");
+       for (int i = 0; i < n; i++)
+       {
+           a[i] = s.nextInt();
+       }
+       for (int i = 0; i < n; i++)
+       {
+            System.out.print("check Order:");
+           for (int j = i + 1; j < n; j++)
+           {
+               if (a[i] > a[j])
+               {
+                   temp = a[i];
+                   a[i] = a[j];
+                   a[j] = temp;
+               }
+           }
+       }
+      
+       for (int i = 0; i < n - 1; i++)
+       {
+           System.out.println(a[i] + ",");
+       }
+       System.out.println(a[n - 1]);
+   }
+}
+
+program 2 in string:
+
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+        int n;
+        String temp;
+        Scanner s = new Scanner(System.in);
+        n=s.nextInt();
+        String a[]=new String[n];
+        System.out.println("n = " + n);
+        for(int i=0;i<n;i++){
+            a[i]=s.next();
+        }
+        for(int j=0;j<n;j++){
+             for(int k=j+1;k<n;k++){
+            if(a[j].compareTo(a[k])>=0){
+                temp = a[j];
+                a[j] = a[k];
+                a[k] = temp;
+                }
+            }
+        }
+        for(int l=0;l<n;l++){
+            System.out.println(a[l]);
+        }
+    }
+}
+
+
+Ascii to character:
+
+Program 1:
+
+import java.util.*;
+public class Test {
+    public static void main(String[] args) {
+        String num;
+        int n,len=0;
+         String str=null;
+        Scanner s = new Scanner(System.in);
+         n=s.nextInt();
+        num=s.next();
+        int[] alpha=new int[n+1];
+        if(num.length() !=0){
+            for(int i=0;i<num.length();i=i+n){
+                  System.out.println(num.substring(i,i+n));
+              alpha[len]=Integer.parseInt(num.substring(i,i+n));  
+                str = Character.toString((char)alpha[len]);
+                System.out.println(str);
+                len=len+1;
+            }
+        }
+    }
+}
+
+Program 2:
+
+import java.util.*;
+ class store{
+     public int count=0;
+     public String[] alpha=new String[26];
+     store(){
+           for(char i='a';i<='z';i++){
+                alpha[count]=Character.toString(i);
+                count++;
+            }
+     System.out.println("data has been pushed into alpha"+"count:"+count);
+     }
+     public void storefun(String input){
+        System.out.println("Parameter value"+"="+input);
+        for(int i=0;i<=alpha.length-1;i++){
+            if((alpha[i].compareTo(input))==0){
+            System.out.println("Matched in the position of:"+i);
+            }
+         }      
+    }
+}
+public class display{
+    public static void main(String[] args){
+            String num;
+            int len=0;
+            String str=null;
+            Scanner s = new Scanner(System.in);
+            num=s.next();
+            if((num.length()%2)!=0){
+                 System.out.println( "Entered input length should be divisible by 2");
+                 return;
+                }
+            int[] alpha1=new int[3];
+            String[] toalp=new String[3];
+            System.out.println( "instants created for class store");
+            store nm=new store();
+             for(int i=0;i<num.length();i=i+2){
+                System.out.println("Converted to Alpha"+":"+num.substring(i,i+2));
+                alpha1[len]=Integer.parseInt(num.substring(i,i+2));  
+                str = Character.toString((char)alpha1[len]);
+                toalp[len]=str;
+                nm.storefun(toalp[len]);
+                len=len+1;
+            }
+        }
+    }
+
+
+    To Decode the alphabets:
+
+    program 1:
+
+    import java.util.*;
+    public class MyClass {
+        public static void main(String args[]) {
+        String[] alphabets =new String[58];
+        int count = 0;
+        for(char i='A';i<='z';i++){
+            alphabets[count] = Character.toString(i);
+            count++;
+        }
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        int[] a=new int[5];
+        int[] b=new int[5];
+        String possibleone = "";
+        String possibletwo = "";
+        for(int i =0;i<=input.length()-1;i++){
+            a[i]=Integer.parseInt(input.substring(i,i+1)); 
+            possibleone=possibleone+alphabets[a[i]];
+            if(i==input.length()-1)
+                break;
+                b[i]=Integer.parseInt(input.substring(i,i+2));
+                possibletwo=possibletwo+alphabets[b[i]];
+        }
+            System.out.println(possibleone);
+            System.out.println(possibletwo);
+    }
+}
+
+
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+        String input ="";
+        Scanner s = new Scanner(System.in);
+        input = s.next();
+        for(int i=0;i<=input.length()-1;i++){
+            int ascii = (int) input.charAt(i);
+            if(ascii>=48&&ascii<=57){
+                int ascii2;
+               if(i>=input.length()-1)
+               ascii2 =0;    
+               else
+                      ascii2 = (int) input.charAt(i+1);
+                if(ascii2>=48&&ascii2<=57){
+                    String c = (Character.toString(input.charAt(i))).concat(Character.toString(input.charAt(i+1)));
+                    int ch = Integer.parseInt(c);
+                    for(int k=1;k<=ch;k++){
+                    System.out.print(input.charAt(i-1));
+                    }
+                    System.out.println("");
+                    i=i+2;
+                }
+                else{
+                for(char j ='0';j<input.charAt(i);j++){
+                System.out.print(input.charAt(i-1));
+                }
+                 System.out.println("");
+                }
+            }
+        }
+    }
+}
+
+input:
+a10b3c7d9e12f1t12
+
+output:
+aaaaaaaaaa
+bbb
+ccccccc
+ddddddddd
+eeeeeeeeeeee
+f
+tttttttttttt
+
+
+
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+        String input ="";
+        Scanner s = new Scanner(System.in);
+        input = s.next();
+        for(int i=0;i<=input.length()-1;i++){
+            int ascii = (int) input.charAt(i);
+            if(ascii>=48&&ascii<=57){
+                int ascii2;
+               if(i>=input.length()-1)
+               ascii2 =0;    
+               else
+                      ascii2 = (int) input.charAt(i+1);
+                if(ascii2>=48&&ascii2<=57){
+                    String c = (Character.toString(input.charAt(i))).concat(Character.toString(input.charAt(i+1)));
+                    int ch = Integer.parseInt(c);
+                    for(int k=1;k<=ch;k++){
+                    System.out.print(input.charAt(i+2));
+                    }
+                    System.out.println("");
+                    i=i+2;
+                }
+                else{
+                for(char j ='0';j<input.charAt(i);j++){
+                System.out.print(input.charAt(i+1));
+                }
+                 System.out.println("");
+                }
+            }
+        }
+    }
+}
+
+
+input:
+10a3b16c1d23e51f
+
+output:
+aaaaaaaaaa
+bbb
+cccccccccccccccc
+d
+eeeeeeeeeeeeeeeeeeeeeee
+fffffffffffffffffffffffffffffffffffffffffffffffffff
+     
+
+
+
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+        Scanner s = new Scanner(System.in);
+        String input = s.nextLine();
+        String output="";
+        int count=0;
+       String str="";
+       String space = " ";
+       for(int i=(input.length())-1;i>=0;i--){
+           char code=input.charAt(i);
+           count++;
+              if(code!=' '){
+                 str=str.concat(Character.toString(code));       
+         }
+          if(code==' '){
+          space=space.concat(Integer.toString(count));
+       }
+       }
+      for(int j=0;j<str.length();j++){
+          for(int k=0;k<space.length();k++){
+             
+              int co = Integer.parseInt(Character.toString(space.charAt(k)));
+                  System.out.print("in");
+               if(j==co){
+                
+          } 
+          }
+          
+        System.out.print(str.charAt(j));
+      
+     
+    }
+}
+}
+
+To find the Consecutive letters in a string:
+
+ import java.util.*;
+ public class ABC
+ {
+    public static void main(String args[])
+    {
+        Scanner sn=new Scanner(System.in);
+        String a=sn.next();
+        System.out.println("Input Value = "+a);
+        for(int i=0;i<(a.length()-2);i++)
+        {
+            char b = a.charAt(i);
+            if((++b)==a.charAt(i+1))
+                if((++b)==a.charAt(i+2))
+                    System.out.print(a.charAt(i)+""+a.charAt(i+1)+""+a.charAt(i+2)+"\n");
+        }
+    }
+}
+
